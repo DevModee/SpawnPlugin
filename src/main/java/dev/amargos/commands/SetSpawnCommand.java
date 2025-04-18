@@ -31,7 +31,7 @@ public class SetSpawnCommand implements CommandExecutor {
         SpawnPlugin.getInstance().getConfig().set("spawn.enabled", true);
         SpawnPlugin.getInstance().saveConfig();
 
-        player.sendMessage(MessageUtil.colorize(SpawnPlugin.getInstance().getInstance().getConfig().getString("messages.spawn-set")));
+        player.sendMessage(MessageUtil.getMessage("spawn-set"));
         return true;
     }
 }

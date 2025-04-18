@@ -13,6 +13,9 @@ commands:
   spawn:
     description: Teleport to the configured spawn
     usage: /<command>
+  spawnreload:
+    description: Reload the plugin configuration
+    usage: /<command>
 permissions:
   spawnplugin.setspawn:
     description: Allows settings the spawn
@@ -23,3 +26,6 @@ permissions:
   spawnplugin.spawn:
     description: Allows teleporting to spawn
     default: true
+  spawnplugin.reload:
+    description: Allows reloading the plugin configuration
+    default: op

@@ -8,6 +8,7 @@ spawn:
   pitch: 0.0
 
 messages:
+  # Default message location for fallback
   spawn-set: "&aSpawn set succesfully!"
   spawn-deleted: "&cSpawn location deleted."
   teleporting: "&aTeleporting to spawn..."
@@ -20,4 +21,5 @@ sound:
 cooldown:
   seconds: 5
 
-# test
+# Language settings
+lang: en
