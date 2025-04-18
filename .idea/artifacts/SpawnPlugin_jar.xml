@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="SpawnPlugin:jar">
+    <output-path>$USER_HOME$/Documents/SERVIDORES/Pruebas/plugins</output-path>
+    <root id="archive" name="SpawnPlugin.jar">
+      <element id="module-output" name="SpawnPlugin" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/SERVIDORES/Pruebas/paper-1.8.8-445.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
