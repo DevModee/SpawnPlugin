@@ -4,7 +4,7 @@
 
 ## 🆕 Version
 **Current version:** `1.1`  
-**Supported Minecraft versions:** 1.8 - 1.20
+**Supported Minecraft versions:** 1.8 - 1.12 (up to 1.21 soon)
 
 ## Features
 - ✅ Set a custom spawn location with `/setspawn`.

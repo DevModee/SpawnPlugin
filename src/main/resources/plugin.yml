@@ -17,10 +17,10 @@ commands:
     description: Reload the plugin configuration
     usage: /<command>
 permissions:
-  spawnplugin.setspawn:
+  spawnplugin.set:
     description: Allows settings the spawn
     default: op
-  spawnplugin.delspawn:
+  spawnplugin.del:
     description: Allows deleting the spawn
     default: op
   spawnplugin.spawn:
