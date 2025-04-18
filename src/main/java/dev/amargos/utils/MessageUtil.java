@@ -22,6 +22,8 @@ public class MessageUtil {
         }
 
         messagesConfig = YamlConfiguration.loadConfiguration(messagesFile);
+        cache.clear();
+        SpawnPlugin.getInstance().getLogger().info("Messages successfully reloaded.");
     }
 
     public static String getMessage(String path) {
