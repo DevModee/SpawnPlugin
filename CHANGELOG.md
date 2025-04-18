@@ -17,6 +17,8 @@
 - **Improved API**: Added more flexible methods for API integration with other plugins.
 - **getMessage(path)**` utility to retrieve localized messages anywhere in the code
 - New method **reloadPlugin()** in main class to allow clean reloads
+- Custom messages on plugin enable and disable for better user feedback during startup and shutdown.
+
 
 
 ### Fixed
