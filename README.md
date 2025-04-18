@@ -3,14 +3,14 @@
 **SpawnPlugin** is a lightweight and configurable Minecraft plugin that allows server administrators to set, delete, and teleport to custom spawn locations. It also supports multi-language configuration and includes useful features such as cooldowns and teleportation sounds.
 
 ## 🆕 Version
-**Current version:** `1.2`  
+**Current version:** `1.3`  
 **Supported Minecraft versions:** 1.8 - 1.12 (up to 1.21 soon)
 
 ## Features
 - ✅ Set a custom spawn location with `/setspawn`.
 - ❌ Delete the spawn location with `/delspawn`.
 - 🚀 Teleport to the configured spawn with `/spawn`.
-- 🌐 Support for multi-language configuration (`lang/messages-en.yml`, `messages-es.yml`, etc).
+- 🌐 Language configuration (`messages.yml`).
 - ⏳ Cooldown system for the `/spawn` command.
 - 🔊 Support for custom teleportation sounds.
 - 🔁 `/spawnreload` command to reload all plugin configs without restarting.
