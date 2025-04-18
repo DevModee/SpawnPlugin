@@ -22,8 +22,8 @@ public class SpawnPlugin extends JavaPlugin {
 
         // Register commands
         getCommand("setspawn").setExecutor(new SetSpawnCommand());
-        getCommand("delspawn").getExecutor(new DelSpawnCommand());
-        getCommand("spawn").getExecutor(new SpawnCommand));
+        getCommand("delspawn").setExecutor(new DelSpawnCommand());
+        getCommand("spawn").setExecutor(new SpawnCommand());
 
         // Register events
         getLogger().info("Plugin enabled");

@@ -22,7 +22,7 @@ public class SetSpawnCommand implements CommandExecutor {
         Player player = (Player) sender;
 
         Location location = player.getLocation();
-        SpawnPlugin.getInstance().getConfig().set("spawn.world", location.getWorld().getName);
+        SpawnPlugin.getInstance().getConfig().set("spawn.world", location.getWorld().getName());
         SpawnPlugin.getInstance().getConfig().set("spawn.x", location.getX());
         SpawnPlugin.getInstance().getConfig().set("spawn.y", location.getY());
         SpawnPlugin.getInstance().getConfig().set("spawn.z", location.getZ());
