@@ -12,21 +12,26 @@ public class DelSpawnCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Only players can execute this command.");
-            return false;
+            sender.sendMessage(MessageUtil.getMessage("not-player"));
+            return true;
         }
 
         Player player = (Player) sender;
 
+        if (!player.isOp() && !sender.hasPermission("spawnplugin.del")) {
+            sender.sendMessage(MessageUtil.getMessage("no-permission"));
+            return true;
+        }
+
         if (!SpawnPlugin.getInstance().getConfig().getBoolean("spawn.enabled")) {
-            player.sendMessage(MessageUtil.colorize(SpawnPlugin.getInstance().getConfig().getString("messages.no-spawn")));
-            return false;
+            player.sendMessage(MessageUtil.getMessage("no-spawn"));
+            return true;
         }
 
         SpawnPlugin.getInstance().getConfig().set("spawn.enabled", false);
         SpawnPlugin.getInstance().saveConfig();
 
-        player.sendMessage(MessageUtil.colorize(SpawnPlugin.getInstance().getConfig().getString("messages.spawn-deleted")));
+        player.sendMessage(MessageUtil.getMessage("spawn-deleted"));
         return true;
     }
 }
