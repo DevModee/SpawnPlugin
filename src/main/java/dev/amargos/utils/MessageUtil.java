@@ -11,18 +11,17 @@ import java.util.Map;
 
 public class MessageUtil {
 
-    private static FileConfiguration languageConfig;
+    private static FileConfiguration messagesConfig;
     private static final Map<String, String> cache = new HashMap<>();
 
     public static void loadMessages() {
-        String lang = SpawnPlugin.getInstance().getConfig().getString("lang", "messages-en");
-        File langFile = new File(SpawnPlugin.getInstance().getDataFolder(), "lang/" + lang + ".yml");
+        File messagesFile = new File(SpawnPlugin.getInstance().getDataFolder(), "messages.yml");
 
-        if (!langFile.exists()) {
-            SpawnPlugin.getInstance().saveResource("lang/" + lang + ".yml", false);
+        if (!messagesFile.exists()) {
+            SpawnPlugin.getInstance().saveResource("messages.yml", false);
         }
 
-        languageConfig = YamlConfiguration.loadConfiguration(langFile);
+        messagesConfig = YamlConfiguration.loadConfiguration(messagesFile);
     }
 
     public static String getMessage(String path) {
@@ -30,7 +29,7 @@ public class MessageUtil {
             return cache.get(path);
         }
 
-        String msg = languageConfig.getString(path);
+        String msg = messagesConfig.getString(path);
 
         if (msg == null || msg.trim().isEmpty()) {
             msg = "&c[Missing message: " + path + "]";

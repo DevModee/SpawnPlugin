@@ -17,9 +17,8 @@ public class ConfigManager {
             plugin.reloadConfig();
             plugin.getLogger().info("Existing config.yml loaded.");
         }
-        enforceConfigDefaults(); // Aplica valores por defecto si faltan claves
-        plugin.saveConfig();     // Guarda la configuración actualizada
-        setupLanguageFiles();    // Asegura que existan los archivos de idioma
+        enforceConfigDefaults();
+        plugin.saveConfig();
     }
 
     private static void enforceConfigDefaults() {
@@ -36,25 +35,6 @@ public class ConfigManager {
 
         plugin.getConfig().addDefault("cooldown.seconds", 5);
 
-        plugin.getConfig().addDefault("lang", "en");
-
         plugin.getConfig().options().copyDefaults(true); // Copia los defaults si no existen
-    }
-
-    private static void setupLanguageFiles() {
-        File langFolder = new File(plugin.getDataFolder(), "lang");
-        if (!langFolder.exists()) {
-            langFolder.mkdirs();
-        }
-
-        File enFile = new File(langFolder, "messages-en.yml");
-        if (!enFile.exists()) {
-            plugin.saveResource("lang/messages-en.yml", false);
-        }
-
-        File esFile = new File(langFolder, "messages-es.yml");
-        if (!esFile.exists()) {
-            plugin.saveResource("lang/messages-es.yml", false);
-        }
     }
 }

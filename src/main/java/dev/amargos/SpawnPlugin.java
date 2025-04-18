@@ -30,6 +30,16 @@ public class SpawnPlugin extends JavaPlugin {
         registerCommands();
         registerEventListeners();
 
+        try {
+            MessageUtil.loadMessages();
+        } catch (Exception e) {
+            getLogger().severe("Failed to load messages.yml!");
+            e.printStackTrace();
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
+
+
         getLogger().info("============= [SpawnPlugin] =============");
         getLogger().info("The plugin has been successfully enabled!");
         getLogger().info("Language: " + language);
