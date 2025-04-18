@@ -8,10 +8,7 @@ import dev.amargos.config.ConfigManager;
 import dev.amargos.cooldown.CooldownManager;
 import dev.amargos.utils.MessageUtil;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.File;
 
 public class SpawnPlugin extends JavaPlugin {
 
@@ -23,54 +20,42 @@ public class SpawnPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        saveConfig();
-        language = config.getString("lang", "en");
-        ConfigManager.loadConfig();
-        MessageUtil.loadMessages();
 
+        ConfigManager.loadConfig();
+
+        language = config.getString("lang", "messages-en");
+        MessageUtil.loadMessages();
         cooldownManager = new CooldownManager();
 
-        // Register commands
+        registerCommands();
+        registerEventListeners();
+
+        getLogger().info("============= [SpawnPlugin] =============");
+        getLogger().info("The plugin has been successfully enabled!");
+        getLogger().info("Language: " + language);
+        getLogger().info("Registered commands: /spawn, /setspawn, /delspawn, /spawnreload");
+        getLogger().info("Managers: ConfigManager, CooldownManager, MessageUtil");
+        getLogger().info("=========================================");
+    }
+
+    private void registerCommands() {
         getCommand("spawnreload").setExecutor(new SpawnReloadCommand(this));
         getCommand("setspawn").setExecutor(new SetSpawnCommand());
         getCommand("delspawn").setExecutor(new DelSpawnCommand());
         getCommand("spawn").setExecutor(new SpawnCommand());
 
-        // Register events
-        getLogger().info("Plugin enabled");
-
+        getLogger().info("Commands registered: /spawn, /setspawn, /delspawn, /spawnreload");
     }
 
-    private void loadLanguageMessages() {
-        File langFile = new File(getDataFolder(), "lang/messages-" + language + ".yml");
-        if (!langFile.exists()) {
-            getLogger().warning("Language file " + langFile.getName() + "not found. Falling back to English.");
-            language = "en"; // Fallback to English if no file is found
-            langFile = new File(getDataFolder(), "lang/messages-en.yml");
-        }
-
-        try {
-            YamlConfiguration langConfig = YamlConfiguration.loadConfiguration(langFile);
-            getConfig().setDefaults(langConfig);
-        } catch (Exception e) {
-            getLogger().severe("Could not load language file " + langFile.getName());
-        }
-    }
-
-    public String getMessage(String path) {
-        return MessageUtil.getMessage(path);
-    }
-
-    public void reloadPlugin() {
-        reloadConfig();
-        getLogger().info("Plugin reloaded");
-        MessageUtil.loadMessages();
-
+    private void registerEventListeners() {
+        getLogger().info("Currently no event listeners to register.");
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("Plugin disabled");
+        getLogger().info("=========================================");
+        getLogger().info("[SpawnPlugin] Plugin has been disabled. Goodbye!");
+        getLogger().info("=========================================");
     }
 
     public static SpawnPlugin getInstance() {

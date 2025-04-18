@@ -1,6 +1,7 @@
 package dev.amargos.commands;
 
 import dev.amargos.SpawnPlugin;
+import dev.amargos.utils.MessageUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,13 +16,13 @@ public class SpawnReloadCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (sender.hasPermission("spawnplugin.reload")) {
-            plugin.reloadPlugin();
-            sender.sendMessage(plugin.getMessage("reload-config"));
+        if (!sender.hasPermission("spawnplugin.reload")) {
+            sender.sendMessage(MessageUtil.getMessage("no-permission"));
             return true;
-        } else {
-            sender.sendMessage(plugin.getMessage("no-permission"));
-            return false;
         }
+
+        plugin.reloadConfig();
+        sender.sendMessage(MessageUtil.getMessage("reload-config"));
+        return true;
     }
 }

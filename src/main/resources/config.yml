@@ -7,16 +7,9 @@ spawn:
   yaw: 0.0
   pitch: 0.0
 
-messages:
-  # Default message location for fallback
-  spawn-set: "&aSpawn set succesfully!"
-  spawn-deleted: "&cSpawn location deleted."
-  teleporting: "&aTeleporting to spawn..."
-  no-spawn: "&cSpawn is not set."
-
 sound:
   enabled: true
-  sound: "ENTITY_ENDERMAN_TELEPORT"
+  sound: "ENDERMAN_TELEPORT"
 
 cooldown:
   seconds: 5
