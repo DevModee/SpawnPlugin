@@ -20,6 +20,10 @@
 - Custom messages on plugin enable and disable for better user feedback during startup and shutdown.
 
 
+## Fixed
+- Missing language file (MessageUtil error)
+- onEnable and onDisable message
+
 
 ### Fixed
 - Fixed incorrect config path access in `SetSpawnCommand.java`

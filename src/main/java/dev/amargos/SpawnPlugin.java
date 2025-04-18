@@ -37,7 +37,7 @@ public class SpawnPlugin extends JavaPlugin {
         getCommand("spawn").setExecutor(new SpawnCommand());
 
         // Register events
-        getLogger().info("§a[SpawnPlugin] §fThe plugin has been successfully enabled! §aReady to teleport players to their custom spawn locations!");
+        getLogger().info("&a[SpawnPlugin] &fThe plugin has been successfully enabled!");
 
     }
 
@@ -70,7 +70,7 @@ public class SpawnPlugin extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        getLogger().info("§c[SpawnPlugin] §fThe plugin has been disabled. §cGoodbye!");
+        getLogger().info("&c[SpawnPlugin] &fThe plugin has been disabled. &cGoodbye!");
     }
 
     public static SpawnPlugin getInstance() {
