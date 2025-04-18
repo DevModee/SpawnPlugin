@@ -39,6 +39,12 @@
 | `/spawn`        | Teleports the player to the saved spawn location.      |
 | `/spawnreload`  | Reloads the plugin's configuration and message files.  |
 
+## Future Plans
+- Add support for newer Minecraft versions (up to latest releases).
+- Add new visual and sound effects when teleporting.
+- Dynamic language detection based on player locale.
+- GUI for spawn configuration and teleportation options.
+
 ## API Access
 
 You can use the `SpawnAPI` class from your own plugin to check or teleport a player to the spawn point.
