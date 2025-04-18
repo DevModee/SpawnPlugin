@@ -1,0 +1,4 @@
+name: SpawnPlugin
+version: 1.0
+main: dev.amargos.SpawnPlugin
+api-version: 1.13
