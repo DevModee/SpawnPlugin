@@ -1,0 +1,6 @@
+spawn-set: "&aSpawn set successfully!"
+spawn-deleted: "&cSpawn location deleted."
+teleporting: "&aTeleporting to spawn..."
+no-spawn: "&cSpawn is not set."
+reload-config: "&aConfiguration reloaded successfully!"
+no-permission: "&cYou don't have permission to do that!"

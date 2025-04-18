@@ -23,12 +23,12 @@ public class SpawnCommand implements CommandExecutor {
         Player player = (Player) sender;
 
         if (cooldownManager.isOnCooldown(player)) {
-            player.sendMessage(MessageUtil.colorize(SpawnPlugin.getInstance().getConfig().getString("messages.teleporting")));
+            player.sendMessage(MessageUtil.getMessage("teleporting"));
             return false;
         }
 
         if (!SpawnPlugin.getInstance().getConfig().getBoolean("spawn.enabled")) {
-            player.sendMessage(MessageUtil.colorize(SpawnPlugin.getInstance().getConfig().getString("messages.no-spawn")));
+            player.sendMessage(MessageUtil.getMessage("no-spawn"));
             return false;
         }
 
@@ -44,8 +44,7 @@ public class SpawnCommand implements CommandExecutor {
             player.playSound(player.getLocation(), Sound.valueOf(SpawnPlugin.getInstance().getConfig().getString("sound.sound")), 1.0f, 1.0f);
         }
 
-        player.sendMessage(MessageUtil.colorize(SpawnPlugin.getInstance().getConfig().getString("messages.teleporting")));
-
+        player.sendMessage(MessageUtil.getMessage("teleporting"));
         cooldownManager.setCooldown(player);
         return true;
     }
