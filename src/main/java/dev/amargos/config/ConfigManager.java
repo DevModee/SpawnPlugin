@@ -35,6 +35,6 @@ public class ConfigManager {
 
         plugin.getConfig().addDefault("cooldown.seconds", 5);
 
-        plugin.getConfig().options().copyDefaults(true); // Copia los defaults si no existen
+        plugin.getConfig().options().copyDefaults(true);
     }
 }
