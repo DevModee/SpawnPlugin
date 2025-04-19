@@ -38,14 +38,17 @@ public class CooldownManager {
                 return remainingTime;
             }
         }
-        return -1;
+        return 0;
     }
 
     public String getCooldownMessage(Player player) {
         if (isOnCooldown(player)) {
             long remaining = getRemainingTime(player);
-            return MessageUtil.getMessage("cooldown").replace("{seconds}", String.valueOf(remaining));
+            if (remaining > 0) {
+                return MessageUtil.getMessage("cooldown").replace("{seconds}", String.valueOf(remaining));
+            }
         }
         return null;
     }
+
 }
