@@ -23,8 +23,7 @@ public class SpawnPlugin extends JavaPlugin {
 
         ConfigManager.loadConfig();
 
-        language = config.getString("lang", "messages-en");
-        MessageUtil.loadMessages();
+        language = config.getString("messages");
         cooldownManager = new CooldownManager();
 
         registerCommands();
