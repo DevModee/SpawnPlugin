@@ -19,7 +19,7 @@ public class SpawnReloadCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage(ChatColor.RED + "This command can only be executed by a player.");
+            sender.sendMessage(MessageUtil.getMessage("not-player"));
             return true;
         }
 
@@ -36,7 +36,7 @@ public class SpawnReloadCommand implements CommandExecutor {
         try {
             MessageUtil.loadMessages();
         } catch (Exception e) {
-            sender.sendMessage(ChatColor.RED + "Failed to reload messages.yml! Check console for errors.");
+            sender.sendMessage(MessageUtil.getMessage("reload-config-failed"));
             e.printStackTrace();
             return true;
         }

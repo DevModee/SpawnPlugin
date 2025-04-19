@@ -22,8 +22,6 @@ public class SpawnPlugin extends JavaPlugin {
         instance = this;
 
         ConfigManager.loadConfig();
-
-        language = config.getString("messages");
         cooldownManager = new CooldownManager();
 
         registerCommands();
@@ -41,7 +39,6 @@ public class SpawnPlugin extends JavaPlugin {
 
         getLogger().info("============= [SpawnPlugin] =============");
         getLogger().info("The plugin has been successfully enabled!");
-        getLogger().info("Language: " + language);
         getLogger().info("Registered commands: /spawn, /setspawn, /delspawn, /spawnreload");
         getLogger().info("Managers: ConfigManager, CooldownManager, MessageUtil");
         getLogger().info("=========================================");

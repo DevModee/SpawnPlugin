@@ -14,7 +14,7 @@ public class MessageUtil {
     private static FileConfiguration messagesConfig;
     private static final Map<String, String> cache = new HashMap<>();
 
-    public static void loadMessages() {
+    public static void loadMessages() throws Exception{
         File messagesFile = new File(SpawnPlugin.getInstance().getDataFolder(), "messages.yml");
 
         if (!messagesFile.exists()) {
@@ -22,8 +22,14 @@ public class MessageUtil {
         }
 
         messagesConfig = YamlConfiguration.loadConfiguration(messagesFile);
-        cache.clear();
         SpawnPlugin.getInstance().getLogger().info("Messages successfully reloaded.");
+
+        if(messagesConfig.getKeys(false).isEmpty()){
+            throw new Exception("No messages found in messages.yml!");
+        }
+
+        cache.clear();
+        SpawnPlugin.getInstance().getLogger().info("Messages successfully loaded.");
     }
 
     public static String getMessage(String path) {
