@@ -21,7 +21,7 @@ public class CooldownManager {
             }
             cooldowns.remove(playerId);
         }
-        return true;
+        return false;
     }
 
     public void setCooldown(Player player) {
@@ -44,8 +44,11 @@ public class CooldownManager {
     public String getCooldownMessage(Player player) {
         if (isOnCooldown(player)) {
             long remaining = getRemainingTime(player);
-            return MessageUtil.getMessage("cooldown").replace("{seconds}", String.valueOf(remaining));
+            if (remaining > 0) {
+                return MessageUtil.getMessage("cooldown").replace("{seconds}", String.valueOf(remaining));
+            }
         }
         return null;
     }
+
 }
