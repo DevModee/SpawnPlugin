@@ -32,7 +32,7 @@ public class SpawnCommand implements CommandExecutor {
 
         if (!SpawnPlugin.getInstance().getConfig().getBoolean("spawn.enabled")) {
             player.sendMessage(MessageUtil.getMessage("no-spawn"));
-            return false;
+            return true;
         }
 
         Location spawnLocation = new Location(

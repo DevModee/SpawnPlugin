@@ -22,17 +22,23 @@ public class SpawnPlugin extends JavaPlugin {
         instance = this;
 
         ConfigManager.loadConfig();
-
-        language = config.getString("lang", "messages-en");
-        MessageUtil.loadMessages();
         cooldownManager = new CooldownManager();
 
         registerCommands();
         registerEventListeners();
 
+        try {
+            MessageUtil.loadMessages();
+        } catch (Exception e) {
+            getLogger().severe("Failed to load messages.yml!");
+            e.printStackTrace();
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
+
+
         getLogger().info("============= [SpawnPlugin] =============");
         getLogger().info("The plugin has been successfully enabled!");
-        getLogger().info("Language: " + language);
         getLogger().info("Registered commands: /spawn, /setspawn, /delspawn, /spawnreload");
         getLogger().info("Managers: ConfigManager, CooldownManager, MessageUtil");
         getLogger().info("=========================================");

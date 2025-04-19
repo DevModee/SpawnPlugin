@@ -1,5 +1,20 @@
 # Changelog
 
+
+## [1.4.0] - 2025-04-19
+
+### Fixes
+
+- **Removed unused 'language' field in SpawnPlugin.java.**
+- **Enhanced error handling for loading messages.yml (throws exception if empty or missing).**
+- **Updated SpawnReloadCommand to use external messages for all responses.**
+- **Added warning logs for missing message keys in MessageUtil.**
+- **Ensured messages.yml is created automatically if missing.**
+
+### Changes
+- Upgraded plugin version from `1.2.0` to `1.3.0`.
+- Upgraded plugin version from `1.3.0` to `1.4.0`.
+
 ## [1.2.0] - 2025-04-18
 
 ### ✨ New Features
@@ -58,11 +73,14 @@
 - **Cleaner Error Handling**  
   Avoids sending command usage back to the player if there's a specific error message (e.g. missing permission or config).
 
+
 ---
 
 ### 🔢 Versioning
 
 - Upgraded plugin version from `1.1.0` to `1.2.0`.
+- Upgraded plugin version from `1.2.0` to `1.3.0`.
+- Upgraded plugin version from `1.3.0` to `1.4.0`.
 
 ---
 
