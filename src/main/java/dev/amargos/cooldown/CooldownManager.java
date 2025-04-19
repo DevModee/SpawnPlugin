@@ -21,7 +21,7 @@ public class CooldownManager {
             }
             cooldowns.remove(playerId);
         }
-        return false;
+        return true;
     }
 
     public void setCooldown(Player player) {
@@ -38,7 +38,7 @@ public class CooldownManager {
                 return remainingTime;
             }
         }
-        return -1;
+        return 0;
     }
 
     public String getCooldownMessage(Player player) {

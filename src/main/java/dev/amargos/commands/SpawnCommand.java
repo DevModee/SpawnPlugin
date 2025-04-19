@@ -27,7 +27,7 @@ public class SpawnCommand implements CommandExecutor {
         String cooldownMessage = cooldownManager.getCooldownMessage(player);
         if (cooldownMessage != null) {
             player.sendMessage(cooldownMessage);
-            return false;
+            return true;
         }
 
         if (!SpawnPlugin.getInstance().getConfig().getBoolean("spawn.enabled")) {
